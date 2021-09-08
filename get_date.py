@@ -6,4 +6,5 @@ def get_date():
 
 
 if __name__ == "__main__":
+    pass
    # print(current_date)
