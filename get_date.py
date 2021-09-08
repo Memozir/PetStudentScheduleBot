@@ -5,9 +5,8 @@ timezone_moscow = pytz.timezone('Europe/Moscow')
 
 
 def get_date():
-    return datetime.gmtnow(timezone_moscow)
+    return datetime.now(timezone_moscow)
 
 
 if __name__ == "__main__":
-    pass
-   # print(current_date)
+   print(get_date())
