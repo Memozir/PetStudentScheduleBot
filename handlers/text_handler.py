@@ -53,6 +53,6 @@ async def bot_start(message: types.Message):
 @dp.message_handler(state='*')
 async def show_helpers(message: types.Message):
     if message.text.lower() == 'показать функции':
-        await message.answer('Список доступных фонкций:', reply_markup=show_helpers_kb)
+        await message.answer('Список доступных функций:', reply_markup=helpers_list_kb)
 
 
