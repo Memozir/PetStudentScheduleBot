@@ -20,12 +20,12 @@ async def schedule_process(message: types.Message, state: FSMContext):
 
         if (week_number % 2) == 1:
             if week_number < 6:
-                await message.answer(schedule['120'][f'{week_day}']['bottom'], reply_markup=helpers_list_kb)
+                await message.answer(schedule['120'][f'{week_day}']['bottom'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной')
         else:
             if week_number < 6:
-                await message.answer(schedule['120'][f'{week_day}']['top'], reply_markup=helpers_list_kb)
+                await message.answer(schedule['120'][f'{week_day}']['top'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной', reply_markup=helpers_list_kb)
 
@@ -35,24 +35,24 @@ async def schedule_process(message: types.Message, state: FSMContext):
 
         if (week_number % 2) == 1:
             if week_number < 6:
-                await message.answer(schedule['220'][f'{week_day}']['bottom'], reply_markup=helpers_list_kb)
+                await message.answer(schedule['220'][f'{week_day}']['bottom'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной')
         else:
             if week_number < 6:
-                await message.answer(schedule['220'][f'{week_day}']['top'], reply_markup=helpers_list_kb)
+                await message.answer(schedule['220'][f'{week_day}']['top'], reply_markup=show_helpers_kb)
             else:
-                await message.answer('Сегодня выходной', reply_markup=helpers_list_kb)
+                await message.answer('Сегодня выходной', reply_markup=show_helpers_kb)
 
 
 @dp.message_handler(commands='start', state='*')
 async def bot_start(message: types.Message):
-    await message.answer("Вас приветствует бот для помощи студентам", reply_markup=helpers_list_kb)
+    await message.answer("Вас приветствует бот для помощи студентам", reply_markup=show_helpers_kb)
 
 
 @dp.message_handler(state='*')
 async def show_helpers(message: types.Message):
     if message.text.lower() == 'показать функции':
-        await message.answer('Список доступных фонкций:', reply_markup=show_helpers_kb )
+        await message.answer('Список доступных фонкций:', reply_markup=show_helpers_kb)
 
 
