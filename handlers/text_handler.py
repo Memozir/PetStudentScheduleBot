@@ -20,14 +20,14 @@ async def schedule_process(message: types.Message, state: FSMContext):
 
         if (week_number % 2) == 1:
             if week_number < 6:
-                await message.answer(schedule['120'][f'{week_day}']['bottom'])
+                await message.answer(schedule['120'][f'{week_day}']['bottom'], reply_markup=helpers_list_kb)
             else:
                 await message.answer('Сегодня выходной')
         else:
             if week_number < 6:
-                await message.answer(schedule['120'][f'{week_day}']['top'])
+                await message.answer(schedule['120'][f'{week_day}']['top'], reply_markup=helpers_list_kb)
             else:
-                await message.answer('Сегодня выходной')
+                await message.answer('Сегодня выходной', reply_markup=helpers_list_kb)
 
     if message.text.lower() == '220':
 
@@ -35,14 +35,15 @@ async def schedule_process(message: types.Message, state: FSMContext):
 
         if (week_number % 2) == 1:
             if week_number < 6:
-                await message.answer(schedule['220'][f'{week_day}']['bottom'])
+                await message.answer(schedule['220'][f'{week_day}']['bottom'], reply_markup=helpers_list_kb)
             else:
                 await message.answer('Сегодня выходной')
         else:
             if week_number < 6:
-                await message.answer(schedule['220'][f'{week_day}']['top'])
+                await message.answer(schedule['220'][f'{week_day}']['top'], reply_markup=helpers_list_kb)
             else:
-                await message.answer('Сегодня выходной')
+                await message.answer('Сегодня выходной', reply_markup=helpers_list_kb)
+
 
 @dp.message_handler(commands='start', state='*')
 async def bot_start(message: types.Message):
