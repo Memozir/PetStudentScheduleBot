@@ -11,7 +11,7 @@ helpers_list_kb.add(schedule_all_btn)
 
 schedule_func_kb = InlineKeyboardMarkup(row_width=1)
 today_btn = InlineKeyboardButton(text='На сегодня', callback_data=cb.new(id='today'))
-tomorrow_btn = InlineKeyboardButton(text='На завтра', callback_data=cb.new(id='tomorrow'))
+tomorrow_btn = InlineKeyboardButton(text='На следующий учебный день', callback_data=cb.new(id='tomorrow'))
 schedule_func_kb.add(today_btn, tomorrow_btn)
 
 show_helpers_kb = ReplyKeyboardMarkup(resize_keyboard=True)
