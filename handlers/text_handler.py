@@ -16,34 +16,32 @@ async def schedule_process(message: types.Message, state: FSMContext):
 
     if message.text.lower() == '120':
 
-        await state.finish()
-
         if (week_number % 2) == 1:
-            if week_number < 6:
+            if week_day < 6:
                 await message.answer(schedule['120'][f'{week_day}']['bottom'], reply_markup=show_helpers_kb)
             else:
-                await message.answer('Сегодня выходной')
+                await message.answer('Сегодня выходной', reply_markup=show_helpers_kb)
         else:
-            if week_number < 6:
+            if week_day < 6:
                 await message.answer(schedule['120'][f'{week_day}']['top'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной', reply_markup=helpers_list_kb)
+    
 
-    if message.text.lower() == '220':
-
-        await state.finish()
+    elif message.text.lower() == '220':
 
         if (week_number % 2) == 1:
-            if week_number < 6:
+            if week_day < 6:
                 await message.answer(schedule['220'][f'{week_day}']['bottom'], reply_markup=show_helpers_kb)
             else:
-                await message.answer('Сегодня выходной')
+                await message.answer('Сегодня выходной', reply_markup=show_helpers_kb)
         else:
-            if week_number < 6:
+            if week_day < 6:
                 await message.answer(schedule['220'][f'{week_day}']['top'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной', reply_markup=show_helpers_kb)
 
+    await state.finish()
 
 @dp.message_handler(state=ProcessStates.TOMORROW)
 async def select_helper(message: types.Message, state=FSMContext):
