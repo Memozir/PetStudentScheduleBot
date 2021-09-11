@@ -18,7 +18,6 @@ async def select_helper(query: types.CallbackQuery, callback_data: dict):
 
     if id == 'schedule':
         await bot.send_message(query['message']['chat']['id'], 'Функции расписания', reply_markup=keyboards.schedule_func_kb)
-        await ProcessStates.TODAY.set()
 
     elif id == 'tomorrow':
         await ProcessStates.TOMORROW.set()
