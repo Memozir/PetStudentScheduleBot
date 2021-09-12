@@ -14,13 +14,6 @@ async def bot_start(message: types.Message):
     await ProcessStates.SHOW_FUNC.set()
 
 
-@dp.message_handler(state=[ProcessStates.SHOW_FUNC, ProcessStates.ARB_GP])
-async def show_helpers(message: types.Message, state: FSMContext):
-    if message.text.lower() == 'показать функции':
-        await message.answer('Список доступных функций:', reply_markup=helpers_list_kb)
-        await state.finish()
-
-
 @dp.message_handler(state=ProcessStates.TODAY)
 async def schedule_process(message: types.Message, state: FSMContext):
 
@@ -130,3 +123,10 @@ async def arbitary_day(message: types.Message, state: FSMContext):
             await message.answer(schedule['220'][data_day['arbitary_day']]['bottom'], reply_markup=show_helpers_kb)
 
     await state.reset_data()
+
+
+@dp.message_handler(state=[ProcessStates.SHOW_FUNC, ProcessStates.ARB_GP])
+async def show_helpers(message: types.Message, state: FSMContext):
+    if message.text.lower() == 'показать функции':
+        await message.answer('Список доступных функций:', reply_markup=helpers_list_kb)
+        await state.finish()
