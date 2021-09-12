@@ -10,7 +10,7 @@ from text.schedule import schedule
 
 
 @dp.callback_query_handler(cb.filter(), state='*')
-async def select_helper(query: types.CallbackQuery, callback_data: dict):
+async def select_helper(query: types.CallbackQuery, callback_data: dict, state=FSMContext):
 
     # Callback handler
     await bot.answer_callback_query(query.id)
@@ -26,3 +26,28 @@ async def select_helper(query: types.CallbackQuery, callback_data: dict):
     elif id == 'today':
         await ProcessStates.TODAY.set()
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+    
+    elif id == 'arbitary':
+        await bot.send_message(query['message']['chat']['id'], 'Выберите день недели:', reply_markup=keyboards.arb_kb)
+        await ProcessStates.ARB_GP.set()
+
+    elif id == '1':
+        await state.update_data(arbitary_day = '1')
+        await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+
+    elif id == '2':
+        await state.update_data(arbitary_day = '2')
+        await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+
+    elif id == '3':
+        await state.update_data(arbitary_day = '3')
+        await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+
+    elif id == '4':
+        await state.update_data(arbitary_day = '4')
+        await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+
+    elif id == '5':
+        await state.update_data(arbitary_day = '5')
+        await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+
