@@ -132,4 +132,5 @@ async def arbitary_day(message: types.Message, state: FSMContext):
 async def show_helpers(message: types.Message, state: FSMContext):
     if message.text.lower() == 'показать функции':
         await message.answer('Список доступных функций:', reply_markup=helpers_list_kb)
+        await ProcessStates.SHOW_FUNC.set()
         await state.finish()
