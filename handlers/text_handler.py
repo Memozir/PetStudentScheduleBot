@@ -101,6 +101,8 @@ async def select_helper(message: types.Message, state=FSMContext):
 @dp.message_handler(state=ProcessStates.ARB_GP)
 async def arbitary_day(message: types.Message, state: FSMContext):
 
+    # current_state = await state.get_state()
+
     await ProcessStates.SHOW_FUNC.set()
 
     week_number = get_week_num()
@@ -123,9 +125,10 @@ async def arbitary_day(message: types.Message, state: FSMContext):
             await message.answer(schedule['220'][data_day['arbitary_day']]['bottom'], reply_markup=show_helpers_kb)
 
     await state.reset_data()
+    await ProcessStates.SHOW_FUNC.set()
 
 
-@dp.message_handler(state=[ProcessStates.SHOW_FUNC, ProcessStates.ARB_GP])
+@dp.message_handler(state=ProcessStates.SHOW_FUNC)
 async def show_helpers(message: types.Message, state: FSMContext):
     if message.text.lower() == 'показать функции':
         await message.answer('Список доступных функций:', reply_markup=helpers_list_kb)

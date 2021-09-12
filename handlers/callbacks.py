@@ -12,6 +12,7 @@ from text.schedule import schedule
 @dp.callback_query_handler(cb.filter(), state='*')
 async def select_helper(query: types.CallbackQuery, callback_data: dict, state=FSMContext):
 
+
     # Callback handler
     await bot.answer_callback_query(query.id)
     id = callback_data['id']
@@ -29,7 +30,7 @@ async def select_helper(query: types.CallbackQuery, callback_data: dict, state=F
     
     elif id == 'arbitary':
         await bot.send_message(query['message']['chat']['id'], 'Выберите день недели:', reply_markup=keyboards.arb_kb)
-        await ProcessStates.ARB_GP.set()
+        await ProcessStates.SHOW_FUNC.set()
 
     elif id == '1':
         await state.update_data(arbitary_day = '1')
