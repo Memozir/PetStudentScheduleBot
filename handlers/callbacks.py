@@ -34,20 +34,25 @@ async def select_helper(query: types.CallbackQuery, callback_data: dict, state=F
     elif id == '1':
         await state.update_data(arbitary_day = '1')
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+        await ProcessStates.ARB_GP.set()
 
     elif id == '2':
         await state.update_data(arbitary_day = '2')
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+        await ProcessStates.ARB_GP.set()
 
     elif id == '3':
         await state.update_data(arbitary_day = '3')
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+        await ProcessStates.ARB_GP.set()
 
     elif id == '4':
         await state.update_data(arbitary_day = '4')
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+        await ProcessStates.ARB_GP.set()
 
     elif id == '5':
         await state.update_data(arbitary_day = '5')
         await bot.send_message(query['message']['chat']['id'], 'Выберите свою группу', reply_markup=keyboards.group_keyboard)
+        await ProcessStates.ARB_GP.set()
 
