@@ -14,7 +14,7 @@ async def bot_start(message: types.Message):
     await ProcessStates.SHOW_FUNC.set()
 
 
-@dp.message_handler(state='*')
+@dp.message_handler()
 async def loh_cathcer(message: types.Message):
 
     if message.text.lower() == 'юра лох':
