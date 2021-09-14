@@ -8,6 +8,6 @@ storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
 
-async def shutdow(dispatcher: Dispatcher):
+async def shutdown(dispatcher: Dispatcher):
 	await dispatcher.storage.close()
 	await dispatcher.storage.wait_closed()
