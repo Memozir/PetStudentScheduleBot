@@ -14,11 +14,11 @@ async def bot_start(message: types.Message):
     await ProcessStates.SHOW_FUNC.set()
 
 
-@dp.message_handler()
-async def loh_cathcer(message: types.Message):
-
-    if message.text.lower() == 'юра лох':
-        await message.answer('Так, вот сейчас не понял, простба не выражаться!')
+# @dp.message_handler(state='*')
+# async def loh_cathcer(message: types.Message):
+#     if message.text.lower() == 'юра лох':
+#         await message.answer('Так, вот сейчас не понял, просьба не выражаться!')
+#         await ProcessStates.SHOW_FUNC.set()
 
 
 @dp.message_handler(state=ProcessStates.TODAY)
@@ -55,12 +55,12 @@ async def schedule_process(message: types.Message, state: FSMContext):
                 await message.answer(schedule['220'][f'{week_day}']['top'], reply_markup=show_helpers_kb)
             else:
                 await message.answer('Сегодня выходной', reply_markup=show_helpers_kb)
+    
+    await ProcessStates.SHOW_FUNC.set()
 
 
 @dp.message_handler(state=ProcessStates.TOMORROW)
 async def select_helper(message: types.Message):
-
-    await ProcessStates.SHOW_FUNC.set()
 
     if message.text == '120':
 
@@ -103,6 +103,8 @@ async def select_helper(message: types.Message):
                 await message.answer(schedule['220']['1']['bottom'], reply_markup=show_helpers_kb)
             else:
                 await message.answer(schedule['220']['1']['top'], reply_markup=show_helpers_kb)
+    
+    await ProcessStates.SHOW_FUNC.set()
 
 
 @dp.message_handler(state=ProcessStates.ARB_GP)
