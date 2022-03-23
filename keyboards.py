@@ -34,7 +34,7 @@ show_helpers_kb.add(show_helpers_btn1)
 
 # Choose study group
 group_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
-vt_120 = KeyboardButton('120')
+vt_120 = KeyboardButton('120(устаревшее)')
 vt_220 = KeyboardButton('220')
 group_keyboard.add(vt_120, vt_220)
 
