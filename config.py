@@ -1,2 +1,5 @@
 
 TOKEN = "1995255450:AAFHrleZAHXpwCazCUlY8eJ5r0zzBfkJXa4"
+ADMIN_IDS = [
+    '454449281',
+]

@@ -1,11 +1,18 @@
 from dispatcher import dp, Bot
 from aiogram import types
 from aiogram.dispatcher import FSMContext
+from aiogram.dispatcher.filters.builtin import IDFilter
 
+import config
 from keyboards import show_helpers_kb, helpers_list_kb
 from get_date import get_week_num, get_week_day
 from text.schedule import schedule
 from states import ProcessStates
+
+
+@dp.message_handler(IDFilter(user_id=config.ADMIN_IDS), commands=['load'], state='*')
+async def load_new_schedule(message: types.Message):
+    await message.answer('Здравствуйте, админ!')
 
 
 @dp.message_handler(commands='start', state='*')

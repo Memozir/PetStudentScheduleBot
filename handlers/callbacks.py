@@ -1,6 +1,7 @@
 from dispatcher import dp, bot
 from aiogram import types
 from aiogram.dispatcher import FSMContext
+from aiogram.types import InputFile
 
 import keyboards
 from handlers.callback_factory import cb
@@ -20,6 +21,11 @@ async def select_helper(query: types.CallbackQuery, callback_data: dict, state=F
     if id == 'schedule':
         await bot.send_message(query['message']['chat']['id'], 'Функции расписания', reply_markup=keyboards.schedule_func_kb)
         await ProcessStates.SHOW_FUNC.set()
+
+    elif id == 'get_document':
+        schedule_file = InputFile('src/IITR_47.pdf', filename='Расписание.pdf')
+        # await bot.send_file(schedule_file)
+        await bot.send_document(query.from_user.id, schedule_file)
 
     elif id == 'tomorrow':
         await ProcessStates.TOMORROW.set()

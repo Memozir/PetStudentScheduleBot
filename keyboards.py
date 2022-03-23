@@ -8,7 +8,8 @@ from handlers.callback_factory import cb
 # Main Functions
 helpers_list_kb = InlineKeyboardMarkup(row_width=1)
 schedule_all_btn = InlineKeyboardButton(text='Расписание', callback_data=cb.new(id='schedule'))
-helpers_list_kb.add(schedule_all_btn)
+document_btn = InlineKeyboardButton(text='Получить файл с расписанием', callback_data=cb.new('get_document'))
+helpers_list_kb.add(schedule_all_btn, document_btn)
 
 # Sub Functions
 schedule_func_kb = InlineKeyboardMarkup(row_width=1)
