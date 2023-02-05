@@ -6,13 +6,12 @@ from aiogram.types import InputFile
 import keyboards
 from handlers.callback_factory import cb
 from states import ProcessStates
-from get_date import get_week_day, get_week_num
 from text.schedule import schedule
+# from get_date import get_week_day, get_week_num
 
 
 @dp.callback_query_handler(cb.filter(), state='*')
 async def select_helper(query: types.CallbackQuery, callback_data: dict, state=FSMContext):
-
 
     # Callback handler
     await bot.answer_callback_query(query.id)

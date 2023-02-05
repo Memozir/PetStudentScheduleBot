@@ -32,7 +32,7 @@ show_helpers_kb = ReplyKeyboardMarkup(resize_keyboard=True)
 show_helpers_btn1 = KeyboardButton('Показать функции')
 show_helpers_kb.add(show_helpers_btn1)
 
-# Choose study group
+# Choose Study Group
 group_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 vt_120 = KeyboardButton('120(устаревшее)')
 vt_220 = KeyboardButton('220')
