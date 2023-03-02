@@ -21,13 +21,6 @@ async def bot_start(message: types.Message):
     await ProcessStates.SHOW_FUNC.set()
 
 
-# @dp.message_handler(state='*')
-# async def loh_cathcer(message: types.Message):
-#     if message.text.lower() == 'юра лох':
-#         await message.answer('Так, вот сейчас не понял, просьба не выражаться!')
-#         await ProcessStates.SHOW_FUNC.set()
-
-
 @dp.message_handler(state=ProcessStates.TODAY)
 async def schedule_process(message: types.Message, state: FSMContext):
 
